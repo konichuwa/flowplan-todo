@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlowPlan Todo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Personal planner</p>
+          <h1>FlowPlan</h1>
+        </div>
+        <div class="status-pill">Today is <span id="todayLabel"></span></div>
+      </header>
+
+      <main class="layout">
+        <aside class="panel profile-panel">
+          <div class="panel-header">
+            <h2>Your profile</h2>
+          </div>
+
+          <form id="profileForm" class="profile-form">
+            <label>
+              <span>Name</span>
+              <input id="nameInput" type="text" maxlength="40" placeholder="Enter your name" />
+            </label>
+
+            <label>
+              <span>Age</span>
+              <input id="ageInput" type="number" min="1" max="120" placeholder="Enter your age" />
+            </label>
+
+            <button type="submit" class="primary-btn">Save profile</button>
+          </form>
+        </aside>
+
+        <section class="panel todo-panel">
+          <div class="panel-header actions-row">
+            <div>
+              <p class="eyebrow">Agenda</p>
+              <h2>To-do timeline</h2>
+            </div>
+            <div class="nav-buttons">
+              <button id="prevDayBtn" class="icon-btn" aria-label="Previous day">←</button>
+              <button id="nextDayBtn" class="icon-btn" aria-label="Next day">→</button>
+            </div>
+          </div>
+
+          <div id="dateWindow" class="date-window" aria-live="polite"></div>
+
+          <form id="taskForm" class="task-form">
+            <label class="task-input-wrap">
+              <span>Task for <strong id="selectedDateLabel"></strong></span>
+              <input id="taskInput" type="text" maxlength="120" placeholder="Add a task..." />
+            </label>
+            <button type="submit" class="primary-btn">Add task</button>
+          </form>
+
+          <div class="task-summary">
+            <div>
+              <span class="summary-label">Completed</span>
+              <strong id="completedCount">0</strong>
+            </div>
+            <div>
+              <span class="summary-label">Remaining</span>
+              <strong id="remainingCount">0</strong>
+            </div>
+          </div>
+
+          <div class="tasks-list" id="tasksList" aria-live="polite"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="index.js" defer></script>
+  </body>
+</html>
